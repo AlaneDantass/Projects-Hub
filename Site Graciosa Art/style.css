@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Unna", serif;;
+}
+
+body{
+    background-color: #F9EDF1;
+}
+
+/*BARRA DE NAVEGAÇÃO*/
+header{
+    position: relative;
+    padding: 0;
+}
+
+.navbar {
+    background-image: url(imgs/barra.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 20px; /* Apenas arredondando o canto inferior esquerdo */
+    border-bottom-right-radius: 20px; /* Apenas arredondando o canto inferior direito */
+    position: fixed; /* Torna a barra de navegação fixa no topo */
+    top: 0; /* Posiciona a barra no topo da página */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição para garantir que esteja centralizada */
+    z-index: 1000; /* Garante que a barra fique acima de outros conteúdos da página */
+
+}
+
+nav{
+    margin: 0 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+}
+
+nav .logo img{
+    width: 50px;
+}
+
+nav .links{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav a{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #F7006F;
+}
+
+nav .barra_btn{
+    color: #ffffff;
+    font-size: 20px;
+    display: none; /* Inicialmente, o botão não é exibido */
+    cursor: pointer; /* Altera o cursor para uma mãozinha quando sobre o botão, indicando que é clicável */
+}
+
+nav .acion_btn{
+    background-color: #F7006F;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem 1rem;
+    border: none; /* Remove qualquer borda do botão */
+    outline: none; /* Remove o contorno que aparece quando o botão é focado */
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+}
+
+nav .acion_btn:hover{
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+}
+
+.acion_btn:active{
+    transform: scale(0.95); 
+}
+
+/*MENU SUSPENSO*/
+/* Define o estilo para o menu suspenso (dropdown menu) */
+.menu_suspenso{
+    display: none; /* Inicialmente, o menu suspenso está escondido */
+    position: absolute; /* Posiciona o menu de forma absoluta em relação ao seu elemento pai */
+    right: 2rem; /* Define a distância do menu em relação à borda direita */
+    top: 60px; /* Define a distância do menu em relação ao topo */
+    width: 300px; /* Define a largura do menu */
+    height: 0; /* Inicialmente, a altura é zero para ocultar o conteúdo */
+    background-color: rgba(0, 0, 0, 0.72); /* Define a cor de fundo com opacidade */
+    backdrop-filter: blur(15px); /* Aplica um efeito de desfoque no fundo do menu */
+    border-radius: 10px; /* Arredonda os cantos do menu */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar os limites do menu */
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição suave para a altura do menu ao abrir/fechar */
+}
+
+/* Classe aplicada ao menu suspenso quando ele está aberto */
+.menu_suspenso.open{
+    height: 240px; /* Define a altura do menu quando ele está aberto, revelando o conteúdo */
+}
+
+/* Define o estilo dos itens de lista dentro do menu suspenso */
+.menu_suspenso li{
+    padding: 0.7rem; /* Define o preenchimento interno dos itens */
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Define o estilo específico para o botão "Compre agora" dentro do menu suspenso */
+.menu_suspenso .acion_btn{
+    width: 100%; /* O botão ocupa 100% da largura do menu */
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    justify-content: center; /* Centraliza o botão horizontalmente */
+}
+
+/*ESTILO GLOBAL*/
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+section{
+    padding: 3.5rem 0;
+}
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+h1{
+    color: #F7006F;
+}
+
+p {
+    color: #3E3D40;
+    overflow-wrap: break-word; /* Permite que palavras longas sejam quebradas em várias linhas para evitar que ultrapassem os limites do contêiner */
+    line-height: 1.5; /* Define a altura da linha como 1.5 vezes o tamanho normal, melhorando a legibilidade do texto */
+}
+
+
+/*HERO SECTION*/
+.hero{
+    margin: 40px 0px;
+    display: flex;
+    
+}
+.summary img{
+    max-width: 700px;
+    
+    
+}
+.main-image img{
+    max-width: 700px;
+    padding: 0;
+    border-radius: 3px;
+    position: 100% 50%;
+}
+
+/* RESPONSIVE DESIGN */
+/* Define estilos responsivos para telas com largura máxima de 992px */
+@media (max-width: 992px) {
+    nav .links, nav .acion_btn {
+        display: none; /* Esconde os links de navegação e o botão "Compre agora" */
+    }
+    nav .barra_btn{
+        display: block; /* Exibe o botão de menu (barra_btn) */
+    }
+    
+    .menu_suspenso{
+        display: block; /* Garante que o menu suspenso seja exibido quando necessário */
+    }
+}
+
+/* Define estilos responsivos para telas com largura máxima de 576px */
+@media (max-width: 576px){
+    .menu_suspenso{
+        left: 2rem; /* Define a distância do menu em relação à borda esquerda */
+        width: unset; /* Remove qualquer largura definida anteriormente, ajustando automaticamente */
+    }
+}
